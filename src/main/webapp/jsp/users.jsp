@@ -1,19 +1,22 @@
-<%@ page import="Models.User" %>
+
 <%@ page import="java.util.List" %>
+<%@ page import="Models.User" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Users</title>
 </head>
 <body>
-<h1>From JSP Users</h1>
 <div>
     <table>
         <tr>
             <th>ID</th>
             <th>USERNAME</th>
             <th>EMAIL</th>
+
         </tr>
         <c:forEach items="${usersForJsp}" var="user">
             <tr>

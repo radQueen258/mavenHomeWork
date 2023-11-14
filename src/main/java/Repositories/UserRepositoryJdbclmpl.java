@@ -13,7 +13,7 @@ public class UserRepositoryJdbclmpl implements UserRepository {
     private Connection connection;
     private Statement statement;
 
-    private static final String SQL_SELECT_FROM_DRIVER = "select username, email, password from users";
+    private static final String SQL_SELECT_FROM_DRIVER = "select user_id,username, email, password from users";
 
     public UserRepositoryJdbclmpl(Connection connection, Statement statement) {
         this.connection = connection;
@@ -24,12 +24,13 @@ public class UserRepositoryJdbclmpl implements UserRepository {
     @Override
     public List findAll() {
         try {
-            statement = connection.createStatement();
+            Statement statement1 = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(SQL_SELECT_FROM_DRIVER);
             List<User> result = new ArrayList<>();
 
             while (resultSet.next()) {
                 User user = User.builder()
+                        .id(resultSet.getLong("user_id"))
                         .userName(resultSet.getString("username"))
                         .userEmail(resultSet.getString("email"))
                         .userPassword(resultSet.getString("password"))

@@ -40,7 +40,7 @@ public class loginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/html/loginPage.html").forward(request, response);
+        request.getRequestDispatcher("/jsp/users.jsp").forward(request, response);
     }
 
     @Override

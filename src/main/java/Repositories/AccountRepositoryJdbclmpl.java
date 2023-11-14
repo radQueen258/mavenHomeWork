@@ -40,6 +40,8 @@ public class AccountRepositoryJdbclmpl implements AccountRepository {
         while (resultSet.next()){
             userAcc = resultSet.getString("username");
             passAcc = resultSet.getString("password");
+            System.out.println("Retrieved username: " + userAcc);
+            System.out.println("Retrieved password: " + passAcc);
         }
 
         if(userAcc != null && passAcc != null && userAcc.equals(username) && passAcc.equals(password)){
